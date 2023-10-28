@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Teko";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Teko"),
+             url("Teko-Bold.woff2") format("woff2"),
+             url("Teko-Bold.woff") format("woff");
+}
