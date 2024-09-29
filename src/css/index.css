@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "../fonts//fonts.css";
+@import "../assets/fonts/fonts.css";
 
 ::-webkit-scrollbar {
     border-radius: 10px;

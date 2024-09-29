@@ -13,5 +13,25 @@ module.exports = {
     },
     globals: {
         ROOT: 'readonly',
+        RESOURCE_TYPE: 'readonly',
+
+        // -- Layout --
+        Header: 'readonly',
+        Main: 'readonly',
+        Footer: 'readonly',
+        Layout: 'readonly',
+
+        // -- Game --
+        Config: 'readonly',
+        ResourseLoader: 'readonly',
+        CanvasDrawEngine: 'readonly',
+        PhysicsEngine: 'readonly',
+        DeviceInputHandler: 'readonly',
+        BaseEntity: 'readonly',
+        Bird: 'readonly',
+        Game: 'readonly',
+
+        // -- App --
+        App: 'readonly',
     },
 };

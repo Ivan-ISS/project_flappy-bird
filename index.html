@@ -3,12 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="./src/css/index.css">
     <title>Flappy Bird</title>
 </head>
 <body>
     <div id="root"></div>
-    <canvas class="game" width="322" height="482"></canvas>
+
+    <!-- Constants and Utils -->
+    <script src="./src/constants/root.js"></script>
+
+        <!-- Game components -->
+
+        <!-- Config -->
+        <script src="./src/components/Game/config/config.js"></script>
+
+        <!-- ResourseLoader -->
+        <script src="./src/components/Game/resources/resourceLoader.js"></script>
+
+        <!-- CanvasDrawEngine -->
+        <script src="./src/components/Game/engines/canvasDrawEngine.js"></script>
+
+        <!-- PhysicsEngine -->
+        <script src="./src/components/Game/engines/physicsEngine.js"></script>
+
+        <!-- DeviceInputHandler -->
+        <script src="./src/components/Game/devices/deviceInputHandler.js"></script>
+
+        <!-- BaseEntity -->
+        <script src="./src/components/Game/entities/baseEntity.js"></script>
+
+        <!-- Bird -->
+        <script src="./src/components/Game/entities/bird.js"></script>
+
+        <!-- Game -->
+        <script src="./src/components/Game/game.js"></script>
+
+    <!-- Header -->
+    <script src="./src/components/Header/header.js"></script>
+    <link rel="stylesheet" href="./src/components/Header/header.css">
+
+    <!-- Main -->
+    <script src="./src/components/Main/main.js"></script>
+    <link rel="stylesheet" href="./src/components/Main/main.css">
+
+    <!-- Footer -->
+    <script src="./src/components/Footer/footer.js"></script>
+    <link rel="stylesheet" href="./src/components/Footer/footer.css">
+
+    <!-- Layout -->
+    <script src="./src/components/Layout/layout.js"></script>
+    <link rel="stylesheet" href="./src/components/Layout/layout.css">
+
+    <!-- App -->
+    <script src="./src/components/App.js"></script>
+
+    <!-- index -->
+    <script src="./src/index.js"></script>
 </body>
 </html>
