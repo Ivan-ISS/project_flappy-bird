@@ -10,6 +10,7 @@ class BaseEntity {
 
         this._frames = frames;
         this._frameIdx = 0;
+        this._idx = 0;
         this._spriteSheet = spriteSheet;
         this._drawEngine = drawEngine;
         this._game = game;
@@ -27,6 +28,7 @@ class BaseEntity {
     }
 
     update(delta) {
-        this._frameIdx = (this._frameIdx + Math.ceil(delta * 2800)) % this._frames.length;
+        this._idx += delta * 7;
+        this._frameIdx = Math.floor(this._idx) % this._frames.length;
     }
 }
