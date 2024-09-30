@@ -7,14 +7,6 @@ class Game {
         this.height = this._config.canvas.height;
 
         this._resourceLoader = new ResourseLoader();
-        this._deviceInputHandler = new DeviceInputHandler({
-            left: () => {
-                this._bird.flap();
-            },
-            middle: () => {
-                this._bird.flap();
-            },
-        });
     }
 
     render() {
@@ -34,6 +26,11 @@ class Game {
 
         this._drawEngine = new CanvasDrawEngine({ canvas: this._canvas });
         this._physicsEngine = new PhysicsEngine({ gravity: this._config.gravity });
+        this._controlEngine = new ControlEngine({
+            leftMouse: () => this._bird.flap(),
+            space: () => this._bird.flap(),
+            arrowUp: () => this._bird.flap(),
+        });
 
         this.initEnties();
     }
@@ -75,11 +72,11 @@ class Game {
     }
 
     _loop() {
-        const now = Date.now();
-        const delta = this._lastUpdate - now;
-
         if (this._playing) {
-            this.update(/* delta / 1000 */ 1);
+            const now = Date.now();
+            const delta = now - this._lastUpdate;
+
+            this.update(delta / 1000);
             this._drawEngine.clear();
             this.draw();
 
@@ -91,13 +88,14 @@ class Game {
 
     start() {
         this._playing = true;
-        this._deviceInputHandler.subscribe();
+        this._controlEngine.enableHandlers();
         this._lastUpdate = Date.now();
         this._loop();
     }
 
     gameOver() {
         this._playing = false;
+        this._controlEngine.disableHandlers();
         alert(`Game over: ${this._score}`);
     }
 }

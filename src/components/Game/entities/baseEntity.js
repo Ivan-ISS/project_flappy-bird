@@ -27,6 +27,6 @@ class BaseEntity {
     }
 
     update(delta) {
-        this._frameIdx = (this._frameIdx + Math.ceil(delta)) % this._frames.length;
+        this._frameIdx = (this._frameIdx + Math.ceil(delta * 2800)) % this._frames.length;
     }
 }

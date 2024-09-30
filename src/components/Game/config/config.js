@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 class Config {
-    gravity = 0.3;
+    gravity = 600;
 
     canvas = {
         canvasSelector: '.cnv',
@@ -20,7 +20,7 @@ class Config {
         width: 34,
         height: 26,
 
-        flapSpeed: 10,
+        flapSpeed: 400,
 
         frames: [
             {

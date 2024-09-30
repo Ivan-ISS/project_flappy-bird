@@ -26,7 +26,7 @@ module.exports = {
         ResourseLoader: 'readonly',
         CanvasDrawEngine: 'readonly',
         PhysicsEngine: 'readonly',
-        DeviceInputHandler: 'readonly',
+        ControlEngine: 'readonly',
         BaseEntity: 'readonly',
         Bird: 'readonly',
         Game: 'readonly',
