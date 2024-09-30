@@ -6,6 +6,7 @@ class Config {
         canvasSelector: '.cnv',
         width: 322,
         height: 482,
+        fillColor: '#70c5ce',
     };
 
     spriteSheet = {
@@ -24,28 +25,60 @@ class Config {
 
         frames: [
             {
-                x: 276,
+                x: 277,
                 y: 112,
                 w: 34,
                 h: 26,
             },
             {
-                x: 276,
+                x: 277,
                 y: 139,
                 w: 34,
                 h: 26,
             },
             {
-                x: 276,
+                x: 277,
                 y: 164,
                 w: 34,
                 h: 26,
             },
             {
-                x: 276,
+                x: 277,
                 y: 139,
                 w: 34,
                 h: 26,
+            },
+        ],
+    };
+
+    background = {
+        x: 0,
+        y: 217,
+        width: 322,
+        height: 265,
+
+        frames: [
+            {
+                x: 0,
+                y: 0,
+                w: 275,
+                h: 227,
+            },
+        ],
+    };
+
+    floor = {
+        x: 0,
+        y: 351,
+        width: 322,
+        height: 131,
+
+        frames: [
+            {
+                x: 276,
+                y: 0,
+                w: 223,
+                h: 111,
             },
         ],
     };

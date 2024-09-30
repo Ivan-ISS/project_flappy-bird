@@ -7,16 +7,21 @@ class Bird extends BaseEntity {
         this.falling = true;
     }
 
-    update(delta) {
-        super.update(delta);
-
-        this._physicsEngine.update(this, delta);
-
+    _flyoutCheck() {
         if (this.y < 0) {
             this.y = 0;
         }
 
-        if (this.y + this.height >= this._game.height) {
+        return this.y + this.height >= this._game._config.floor.y;
+    }
+
+    update(delta) {
+        this._idx += delta * 7;
+        this._frameIdx = Math.floor(this._idx) % this._frames.length;
+
+        this._physicsEngine.update(this, delta);
+
+        if (this._flyoutCheck()) {
             this._game.gameOver();
         }
     }

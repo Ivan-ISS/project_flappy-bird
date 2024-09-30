@@ -28,6 +28,7 @@ module.exports = {
         PhysicsEngine: 'readonly',
         ControlEngine: 'readonly',
         BaseEntity: 'readonly',
+        Floor: 'readonly',
         Bird: 'readonly',
         Game: 'readonly',
 

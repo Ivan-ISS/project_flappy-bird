@@ -2,11 +2,10 @@
 class Game {
     constructor() {
         this._config = new Config();
+        this._resourceLoader = new ResourseLoader();
 
         this.width = this._config.canvas.width;
         this.height = this._config.canvas.height;
-
-        this._resourceLoader = new ResourseLoader();
     }
 
     render() {
@@ -23,6 +22,7 @@ class Game {
         this._canvas = document.querySelector(this._config.canvas.canvasSelector);
         this._canvas.width = this._config.canvas.width;
         this._canvas.height = this._config.canvas.height;
+        this._canvas.style.background = this._config.canvas.fillColor;
 
         this._drawEngine = new CanvasDrawEngine({ canvas: this._canvas });
         this._physicsEngine = new PhysicsEngine({ gravity: this._config.gravity });
@@ -37,17 +37,23 @@ class Game {
 
     initEnties() {
         this._score = 0;
-        this._bird = new Bird({
-            x: this._config.bird.x,
-            y: this._config.bird.y,
-            width: this._config.bird.width,
-            height: this._config.bird.height,
-            frames: this._config.bird.frames,
-            spriteSheet: this._spriteSheet,
-            flapSpeed: this._config.bird.flapSpeed,
-            physicsEngine: this._physicsEngine,
-            drawEngine: this._drawEngine,
-            game: this,
+
+        const createEntity = (entityConfig, EntityClass, additionalProps = {}) => {
+            return new EntityClass({
+                ...entityConfig,
+                ...additionalProps,
+                physicsEngine: this._physicsEngine,
+                spriteSheet: this._spriteSheet,
+                drawEngine: this._drawEngine,
+                game: this,
+            });
+        };
+
+        this._bird = createEntity(this._config.bird, Bird);
+        this._background = createEntity(this._config.background, BaseEntity);
+        this._floorOne = createEntity(this._config.floor, Floor);
+        this._floorTwo = createEntity(this._config.floor, Floor, {
+            x: this._config.floor.x + this.width,
         });
     }
 
@@ -64,10 +70,15 @@ class Game {
     }
 
     update(delta) {
+        this._floorOne.update(delta);
+        this._floorTwo.update(delta);
         this._bird.update(delta);
     }
 
     draw() {
+        this._background.draw();
+        this._floorOne.draw();
+        this._floorTwo.draw();
         this._bird.draw();
     }
 

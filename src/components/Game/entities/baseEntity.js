@@ -8,6 +8,7 @@ class BaseEntity {
         this.speed = 0;
         this.falling = false;
 
+        this._initialX = x;
         this._frames = frames;
         this._frameIdx = 0;
         this._idx = 0;
@@ -25,10 +26,5 @@ class BaseEntity {
             width: this.width,
             height: this.height,
         });
-    }
-
-    update(delta) {
-        this._idx += delta * 7;
-        this._frameIdx = Math.floor(this._idx) % this._frames.length;
     }
 }
