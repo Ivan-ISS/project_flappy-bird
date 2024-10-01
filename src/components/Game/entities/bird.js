@@ -5,6 +5,7 @@ class Bird extends BaseEntity {
         this._flapSpeed = params.flapSpeed;
         this._physicsEngine = params.physicsEngine;
         this.falling = true;
+        this.speed = 0;
     }
 
     _flyoutCheck() {
@@ -16,8 +17,8 @@ class Bird extends BaseEntity {
     }
 
     update(delta) {
-        this._idx += delta * 7;
-        this._frameIdx = Math.floor(this._idx) % this._frames.length;
+        super.update(delta);
+        this._frameIdx = Math.floor(this._animationOffset) % this._frames.length;
 
         this._physicsEngine.update(this, delta);
 

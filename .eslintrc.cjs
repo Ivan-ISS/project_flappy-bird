@@ -15,6 +15,9 @@ module.exports = {
         ROOT: 'readonly',
         RESOURCE_TYPE: 'readonly',
 
+        // -- utils --
+        random: 'readonly',
+
         // -- Layout --
         Header: 'readonly',
         Main: 'readonly',
@@ -29,6 +32,8 @@ module.exports = {
         ControlEngine: 'readonly',
         BaseEntity: 'readonly',
         Floor: 'readonly',
+        Pipe: 'readonly',
+        PipeMaker: 'readonly',
         Bird: 'readonly',
         Game: 'readonly',
 

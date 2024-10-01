@@ -22,6 +22,7 @@ class Config {
         height: 26,
 
         flapSpeed: 400,
+        animationSpeed: 7,
 
         frames: [
             {
@@ -73,12 +74,38 @@ class Config {
         width: 322,
         height: 131,
 
+        animationSpeed: 100,
+
         frames: [
             {
                 x: 276,
                 y: 0,
                 w: 223,
                 h: 111,
+            },
+        ],
+    };
+
+    pipe = {
+        x: 322,
+        y: 0,
+        width: 53,
+        height: 399,
+
+        animationSpeed: 100,
+
+        frames: [
+            {
+                x: 553,
+                y: 0,
+                w: 53,
+                h: 399,
+            },
+            {
+                x: 501.5,
+                y: 0,
+                w: 53,
+                h: 399,
             },
         ],
     };
