@@ -43,6 +43,7 @@ class PipeMaker {
             height: this._height,
             frames: this._frame,
             divisor: this._divisor,
+            pipeNum: this._pipeNum,
         });
     }
 

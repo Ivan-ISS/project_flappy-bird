@@ -72,10 +72,9 @@ class Game {
     }
 
     update(delta) {
-        this._pipes[0].update(delta);
-        this._pipes[1].update(delta);
-        this._pipes[2].update(delta);
-        this._pipes[3].update(delta);
+        this._pipes.forEach((pipe) => {
+            pipe.update(delta);
+        });
         this._floorOne.update(delta);
         this._floorTwo.update(delta);
         this._bird.update(delta);
@@ -83,10 +82,9 @@ class Game {
 
     draw() {
         this._background.draw();
-        this._pipes[0].draw();
-        this._pipes[1].draw();
-        this._pipes[2].draw();
-        this._pipes[3].draw();
+        this._pipes.forEach((pipe) => {
+            pipe.draw();
+        });
         this._floorOne.draw();
         this._floorTwo.draw();
         this._bird.draw();

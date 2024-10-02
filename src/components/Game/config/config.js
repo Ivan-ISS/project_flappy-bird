@@ -93,6 +93,9 @@ class Config {
         height: 399,
 
         animationSpeed: 100,
+        gap: 85,
+        minY: -300,
+        maxY: -180,
 
         frames: [
             {
