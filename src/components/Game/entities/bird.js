@@ -9,11 +9,7 @@ class Bird extends BaseEntity {
     }
 
     _flyoutCheck() {
-        if (this.y < 0) {
-            this.y = 0;
-        }
-
-        return this.y + this.height >= this._game._config.floor.y;
+        if (this.y < 0) this.y = 0;
     }
 
     update(delta) {
@@ -21,10 +17,7 @@ class Bird extends BaseEntity {
         this._frameIdx = Math.floor(this._animationOffset) % this._frames.length;
 
         this._physicsEngine.update(this, delta);
-
-        if (this._flyoutCheck()) {
-            this._game.gameOver();
-        }
+        this._flyoutCheck();
     }
 
     flap() {

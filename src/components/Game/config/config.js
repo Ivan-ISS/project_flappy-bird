@@ -18,10 +18,10 @@ class Config {
     bird = {
         x: 50,
         y: 100,
-        width: 34,
-        height: 26,
+        width: 25,
+        height: 20,
 
-        flapSpeed: 400,
+        flapSpeed: 230,
         animationSpeed: 7,
 
         frames: [

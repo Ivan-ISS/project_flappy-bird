@@ -98,6 +98,7 @@ class Game {
             this.update(delta / 1000);
             this._drawEngine.clear();
             this.draw();
+            this._collide();
 
             this._lastUpdate = now;
 
@@ -112,9 +113,25 @@ class Game {
         this._loop();
     }
 
-    gameOver() {
+    _gameOver() {
         this._playing = false;
         this._controlEngine.disableHandlers();
         alert(`Game over: ${this._score}`);
+    }
+
+    _collide() {
+        const bird = this._bird;
+        const entities = [...this._pipes, this._floorOne, this._floorTwo];
+
+        entities.forEach((entity) => {
+            if (
+                bird.x + bird.width > entity.x &&
+                bird.x < entity.x + entity.width &&
+                bird.y + bird.height > entity.y &&
+                bird.y < entity.y + entity.height
+            ) {
+                this._gameOver();
+            }
+        });
     }
 }
