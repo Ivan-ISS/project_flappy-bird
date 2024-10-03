@@ -16,4 +16,8 @@ class PhysicsEngine {
         entity.distance += entity.speedX * delta;
         entity.x = entity.initialX - (Math.floor(entity.distance) % entity.divisor);
     }
+
+    rotate(entity, delta) {
+        entity.angle += entity.rotationSpeed * delta;
+    }
 }

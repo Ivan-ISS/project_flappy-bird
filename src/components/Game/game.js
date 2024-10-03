@@ -28,14 +28,15 @@ class Game {
         this._physicsEngine = new PhysicsEngine({ gravity: this._config.gravity });
         this._controlEngine = new ControlEngine({
             leftMouse: () => this._bird.flap(),
-            space: () => this._bird.flap(),
             arrowUp: () => this._bird.flap(),
+            space: () => this._bird.flap(),
         });
 
-        this.initEnties();
+        this._initEnties();
+        this._initHandlers();
     }
 
-    initEnties() {
+    _initEnties() {
         this._score = 0;
 
         const createEntity = (entityConfig, EntityClass, additionalProps = {}) => {
@@ -72,7 +73,7 @@ class Game {
         // т.к. возвращаем результат, кот вновь в промис обернется
     }
 
-    update(delta, play) {
+    _update(delta, play) {
         this._pipes.forEach((pipe) => {
             pipe.update(delta, play);
         });
@@ -81,7 +82,7 @@ class Game {
         this._bird.update(delta, play);
     }
 
-    draw() {
+    _draw() {
         this._background.draw();
 
         if (!this._play) {
@@ -101,10 +102,11 @@ class Game {
             const now = Date.now();
             const delta = now - this._lastUpdate;
 
-            this.update(delta / 1000, this._play);
+            this._update(delta / 1000, this._play);
             this._drawEngine.clear();
-            this.draw();
-            this._collide();
+            this._draw();
+            this._checkCollide();
+            this._checkPoint();
 
             this._lastUpdate = now;
 
@@ -120,18 +122,17 @@ class Game {
         this._lastUpdate = Date.now();
         this._loop();
 
-        document.addEventListener('keydown', () => {
-            this._play = true;
-        });
+        this._enableHandlers();
     }
 
     _gameOver() {
         this._live = false;
+        this._disableHandlers();
         this._controlEngine.disableHandlers();
         alert(`Game over: ${this._score}`);
     }
 
-    _collide() {
+    _checkCollide() {
         const bird = this._bird;
         const entities = [...this._pipes, this._floorOne, this._floorTwo];
 
@@ -145,5 +146,35 @@ class Game {
                 this._gameOver();
             }
         });
+    }
+
+    _checkPoint() {
+        this._pipes.forEach((pipe) => {
+            const birdMiddleX = this._bird.x + this._bird.width / 2;
+            const pipeMiddleX = pipe.x + pipe.width / 2;
+
+            if (pipeMiddleX < birdMiddleX && pipe.isComing) {
+                this._score += 0.5;
+                pipe.isComing = false;
+            }
+            if (pipe.x > this._bird.x) {
+                pipe.isComing = true;
+            }
+        });
+    }
+
+    _initHandlers() {
+        this._pressPlay = () => (this._play = true);
+        this._pressStart = () => this.start();
+    }
+
+    _enableHandlers() {
+        document.addEventListener('keydown', this._pressPlay);
+        document.addEventListener('click', this._pressPlay);
+    }
+
+    _disableHandlers() {
+        document.removeEventListener('keydown', this._pressPlay);
+        document.removeEventListener('click', this._pressPlay);
     }
 }

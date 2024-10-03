@@ -6,6 +6,7 @@ class Pipe extends BaseEntity {
     constructor(params) {
         super(params);
         this.divisor = params.divisor;
+        this.isComing = true;
 
         this._pipeNum = params.pipeNum;
         this._gap = params.gap;

@@ -39,6 +39,7 @@ class BaseEntity {
             y: this.y,
             width: this.width,
             height: this.height,
+            entity: this,
         });
     }
 }

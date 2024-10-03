@@ -21,6 +21,10 @@ class Config {
         width: 25,
         height: 20,
 
+        rotationSpeed: 0.11 * 100,
+        angleMin: -0.44,
+        angleMax: 1.57,
+
         flapForce: 3.35,
         frameRate: 7,
 
