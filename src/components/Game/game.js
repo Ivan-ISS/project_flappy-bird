@@ -57,6 +57,7 @@ class Game {
         });
         this._pipeMaker = createEntity(this._config.pipe, PipeMaker);
         this._pipes = this._pipeMaker.createPipes();
+        this._readyMessage = createEntity(this._config.readyMessage, BaseEntity);
     }
 
     async prepare() {
@@ -71,17 +72,22 @@ class Game {
         // т.к. возвращаем результат, кот вновь в промис обернется
     }
 
-    update(delta) {
+    update(delta, play) {
         this._pipes.forEach((pipe) => {
-            pipe.update(delta);
+            pipe.update(delta, play);
         });
-        this._floorOne.update(delta);
-        this._floorTwo.update(delta);
-        this._bird.update(delta);
+        this._floorOne.update(delta, play);
+        this._floorTwo.update(delta, play);
+        this._bird.update(delta, play);
     }
 
     draw() {
         this._background.draw();
+
+        if (!this._play) {
+            this._readyMessage.draw();
+        }
+
         this._pipes.forEach((pipe) => {
             pipe.draw();
         });
@@ -91,11 +97,11 @@ class Game {
     }
 
     _loop() {
-        if (this._playing) {
+        if (this._live) {
             const now = Date.now();
             const delta = now - this._lastUpdate;
 
-            this.update(delta / 1000);
+            this.update(delta / 1000, this._play);
             this._drawEngine.clear();
             this.draw();
             this._collide();
@@ -107,14 +113,20 @@ class Game {
     }
 
     start() {
-        this._playing = true;
+        this._live = true;
+        this._play = false;
+
         this._controlEngine.enableHandlers();
         this._lastUpdate = Date.now();
         this._loop();
+
+        document.addEventListener('keydown', () => {
+            this._play = true;
+        });
     }
 
     _gameOver() {
-        this._playing = false;
+        this._live = false;
         this._controlEngine.disableHandlers();
         alert(`Game over: ${this._score}`);
     }

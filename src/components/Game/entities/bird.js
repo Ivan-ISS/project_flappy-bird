@@ -2,25 +2,26 @@
 class Bird extends BaseEntity {
     constructor(params) {
         super(params);
-        this._flapSpeed = params.flapSpeed;
-        this._physicsEngine = params.physicsEngine;
-        this.falling = true;
-        this.speed = 0;
+        this._flapForce = params.flapForce;
+        this._frameOffset = 0;
+        this._frameRate = params.frameRate;
     }
 
     _flyoutCheck() {
         if (this.y < 0) this.y = 0;
     }
 
-    update(delta) {
-        super.update(delta);
-        this._frameIdx = Math.floor(this._animationOffset) % this._frames.length;
+    update(delta, play) {
+        this._frameOffset += delta * this._frameRate;
+        this._frameIdx = Math.floor(this._frameOffset) % this._frames.length;
 
-        this._physicsEngine.update(this, delta);
-        this._flyoutCheck();
+        if (play) {
+            this._physicsEngine.freeFall(this, delta);
+            this._flyoutCheck();
+        }
     }
 
     flap() {
-        this.speed = -this._flapSpeed;
+        this.speedY = -this._flapForce; // задаем отрицательную начальную скорость
     }
 }

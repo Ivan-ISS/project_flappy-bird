@@ -5,24 +5,26 @@ class Pipe extends BaseEntity {
 
     constructor(params) {
         super(params);
-        this._divisor = params.divisor;
+        this.divisor = params.divisor;
+
         this._pipeNum = params.pipeNum;
         this._gap = params.gap;
         this._minY = params.minY;
         this._maxY = params.maxY;
     }
 
-    update(delta) {
-        super.update(delta);
-        this.x = this._initialX - (Math.floor(this._animationOffset) % this._divisor);
+    update(delta, play) {
+        if (play) {
+            this._physicsEngine.moveLinear(this, delta);
+        }
 
         // Когда птичка уходит за левую границу
         if (this.x < -this.width * 0.95) {
             // Сбрасываем единовременно координату x для второй пары
-            if (this._initialX !== this._game.width) {
-                this._animationOffset = 0;
-                this._initialX = this._game.width;
-                this._divisor = this._game.width + this.width;
+            if (this.initialX !== this._game.width) {
+                this.distance = 0;
+                this.initialX = this._game.width;
+                this.divisor = this._game.width + this.width;
             }
 
             // Меняем координаты

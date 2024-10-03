@@ -8,26 +8,27 @@ class BaseEntity {
         frames,
         spriteSheet,
         drawEngine,
-        animationSpeed,
-        animationStep,
+        physicsEngine,
+        speedX,
         game,
     }) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.falling = false;
+        this.initialX = x;
+        this.speedX = speedX;
+        this.speedY = 0;
+        this.distance = 0;
 
+        this._frameIdx = 0;
         this._frames = frames;
         this._spriteSheet = spriteSheet;
-        this._drawEngine = drawEngine;
-        this._game = game;
 
-        this._initialX = x;
-        this._frameIdx = 0;
-        this._animationOffset = 0;
-        this._animationSpeed = animationSpeed;
-        this._animationStep = animationStep;
+        this._drawEngine = drawEngine;
+        this._physicsEngine = physicsEngine;
+
+        this._game = game;
     }
 
     draw() {
@@ -39,9 +40,5 @@ class BaseEntity {
             width: this.width,
             height: this.height,
         });
-    }
-
-    update(delta) {
-        this._animationOffset += delta * this._animationSpeed;
     }
 }

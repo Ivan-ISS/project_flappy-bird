@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 class Config {
-    gravity = 600;
+    gravity = 9.8;
 
     canvas = {
         canvasSelector: '.cnv',
@@ -21,8 +21,8 @@ class Config {
         width: 25,
         height: 20,
 
-        flapSpeed: 230,
-        animationSpeed: 7,
+        flapForce: 3.35,
+        frameRate: 7,
 
         frames: [
             {
@@ -74,7 +74,7 @@ class Config {
         width: 322,
         height: 131,
 
-        animationSpeed: 100,
+        speedX: 100,
 
         frames: [
             {
@@ -92,7 +92,8 @@ class Config {
         width: 53,
         height: 399,
 
-        animationSpeed: 100,
+        speedX: 100,
+
         gap: 85,
         minY: -300,
         maxY: -180,
@@ -109,6 +110,22 @@ class Config {
                 y: 0,
                 w: 53,
                 h: 399,
+            },
+        ],
+    };
+
+    readyMessage = {
+        x: 76,
+        y: 55,
+        width: 172,
+        height: 159,
+
+        frames: [
+            {
+                x: 0,
+                y: 228,
+                w: 172,
+                h: 159,
             },
         ],
     };
