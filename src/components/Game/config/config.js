@@ -133,4 +133,85 @@ class Config {
             },
         ],
     };
+
+    gameOverMessage = {
+        x: 48,
+        y: 55,
+        width: 227,
+        height: 43,
+
+        frames: [
+            {
+                x: 174,
+                y: 228,
+                w: 227,
+                h: 43,
+            },
+        ],
+    };
+
+    score = {
+        x: 48,
+        y: 100,
+        width: 227,
+        height: 114,
+
+        currentScoreX: 220,
+        currentScoreY: 150,
+        bestScoreX: 220,
+        bestScoreY: 193,
+
+        frames: [
+            {
+                x: 174,
+                y: 272,
+                w: 227,
+                h: 114,
+            },
+        ],
+    };
+
+    medal = {
+        x: 74,
+        y: 141,
+        width: 44,
+        height: 44,
+
+        frames: [
+            {
+                x: 360,
+                y: 158,
+                w: 44,
+                h: 44,
+            },
+            {
+                x: 312,
+                y: 112,
+                w: 44,
+                h: 44,
+            },
+            {
+                x: 312,
+                y: 158,
+                w: 44,
+                h: 44,
+            },
+        ],
+    };
+
+    startBtn = {
+        x: 122,
+        y: 226,
+        width: 80,
+        height: 26,
+
+        frames: [
+            {
+                x: 247,
+                y: 401,
+                w: 80,
+                h: 26,
+            },
+        ],
+    };
 }

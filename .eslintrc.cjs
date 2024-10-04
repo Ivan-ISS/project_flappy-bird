@@ -17,6 +17,7 @@ module.exports = {
 
         // -- utils --
         random: 'readonly',
+        LocalSrorageUtil: 'readonly',
 
         // -- Layout --
         Header: 'readonly',
@@ -31,6 +32,7 @@ module.exports = {
         PhysicsEngine: 'readonly',
         ControlEngine: 'readonly',
         BaseEntity: 'readonly',
+        Score: 'readonly',
         Floor: 'readonly',
         Pipe: 'readonly',
         PipeMaker: 'readonly',

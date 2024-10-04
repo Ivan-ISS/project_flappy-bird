@@ -28,6 +28,8 @@ class BaseEntity {
         this._drawEngine = drawEngine;
         this._physicsEngine = physicsEngine;
 
+        this._textData = null;
+
         this._game = game;
     }
 
@@ -41,5 +43,9 @@ class BaseEntity {
             height: this.height,
             entity: this,
         });
+
+        if (this._textData) {
+            this._drawEngine.drawText(this._textData);
+        }
     }
 }

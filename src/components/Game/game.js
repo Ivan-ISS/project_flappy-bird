@@ -32,13 +32,11 @@ class Game {
             space: () => this._bird.flap(),
         });
 
-        this._initEnties();
+        // this._initEnties();
         this._initHandlers();
     }
 
     _initEnties() {
-        this._score = 0;
-
         const createEntity = (entityConfig, EntityClass, additionalProps = {}) => {
             return new EntityClass({
                 ...entityConfig,
@@ -59,6 +57,10 @@ class Game {
         this._pipeMaker = createEntity(this._config.pipe, PipeMaker);
         this._pipes = this._pipeMaker.createPipes();
         this._readyMessage = createEntity(this._config.readyMessage, BaseEntity);
+        this._gameOverMessage = createEntity(this._config.gameOverMessage, BaseEntity);
+        this._score = createEntity(this._config.score, Score);
+        this._medal = createEntity(this._config.medal, BaseEntity);
+        this._startBtn = createEntity(this._config.startBtn, BaseEntity);
     }
 
     async prepare() {
@@ -118,6 +120,7 @@ class Game {
         this._live = true;
         this._play = false;
 
+        this._initEnties();
         this._controlEngine.enableHandlers();
         this._lastUpdate = Date.now();
         this._loop();
@@ -127,9 +130,18 @@ class Game {
 
     _gameOver() {
         this._live = false;
+        this._play = false;
         this._disableHandlers();
         this._controlEngine.disableHandlers();
-        alert(`Game over: ${this._score}`);
+        this._score.reset();
+
+        this._gameOverMessage.draw();
+        this._score.draw();
+        this._startBtn.draw();
+
+        if (this._checkMedal()) {
+            this._medal.draw();
+        }
     }
 
     _checkCollide() {
@@ -154,7 +166,7 @@ class Game {
             const pipeMiddleX = pipe.x + pipe.width / 2;
 
             if (pipeMiddleX < birdMiddleX && pipe.isComing) {
-                this._score += 0.5;
+                this._score.currentScore += 0.5;
                 pipe.isComing = false;
             }
             if (pipe.x > this._bird.x) {
@@ -163,14 +175,43 @@ class Game {
         });
     }
 
+    _checkMedal() {
+        if (this._score.currentScore >= 30) {
+            this._medal._frameIdx = 2;
+        } else if (this._score.currentScore >= 20) {
+            this._medal._frameIdx = 1;
+        } else if (this._score.currentScore >= 10) {
+            this._medal._frameIdx = 0;
+        } else {
+            return false;
+        }
+
+        return true;
+    }
+
     _initHandlers() {
         this._pressPlay = () => (this._play = true);
-        this._pressStart = () => this.start();
+        this._pressStart = (e) => {
+            let rect = this._canvas.getBoundingClientRect();
+            let clickX = e.clientX - rect.left;
+            let clickY = e.clientY - rect.top;
+
+            if (
+                !this._live &&
+                clickX >= this._startBtn.x &&
+                clickX <= this._startBtn.x + this._startBtn.width &&
+                clickY >= this._startBtn.y &&
+                clickY <= this._startBtn.y + this._startBtn.height
+            ) {
+                this.start();
+            }
+        };
     }
 
     _enableHandlers() {
         document.addEventListener('keydown', this._pressPlay);
         document.addEventListener('click', this._pressPlay);
+        document.addEventListener('click', this._pressStart);
     }
 
     _disableHandlers() {
@@ -178,3 +219,9 @@ class Game {
         document.removeEventListener('click', this._pressPlay);
     }
 }
+
+// !!!Много неоптимальностей:
+// 1. Обработчики в классе Game - остаются после начала и каждый раз запускают play при нажатии на click и space
+// 2. this._initEnties() - в двух местах в Game => двойной рендер при начальном старте игры
+// 3. Draw происходит в самом начале постоянно еще до начала движения (каждые 17 мс)
+// 4. _checkCollide() и _checkPoint() в Game срабатывают на каждом циле - это верно, но все что до проверки условия в них выполняется на каждом цикле (каждые 17 мс)
