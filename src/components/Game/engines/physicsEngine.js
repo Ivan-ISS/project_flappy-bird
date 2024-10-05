@@ -5,11 +5,11 @@ class PhysicsEngine {
     }
 
     freeFall(entity, delta) {
-        /* entity.speed += this._gravity * delta;
-        entity.y += entity.speed * delta; */
-
         entity.speedY += this._gravity * delta;
-        entity.y += entity.speedY + (this._gravity * delta * delta) / 2;
+        entity.y += entity.speedY * delta;
+
+        /* entity.speedY += this._gravity * delta;
+        entity.y += entity.speedY + (this._gravity * delta * delta) / 2; */
     }
 
     moveLinear(entity, delta) {

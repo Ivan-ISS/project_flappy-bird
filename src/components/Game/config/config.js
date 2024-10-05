@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 class Config {
-    gravity = 9.8;
+    gravity = 600; // 9.8;
 
     canvas = {
         canvasSelector: '.cnv',
@@ -34,7 +34,7 @@ class Config {
         angleMin: -0.44,
         angleMax: 1.57,
 
-        flapForce: 3.35,
+        flapForce: 230, // 3.35,
         frameRate: 10,
 
         frames: [
