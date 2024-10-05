@@ -34,7 +34,7 @@ class Config {
         angleMin: -0.44,
         angleMax: 1.57,
 
-        flapForce: 230, // 3.35,
+        flapForce: 180, // 230 - last, // 3.35 - RUD,
         frameRate: 10,
 
         frames: [
@@ -87,7 +87,7 @@ class Config {
         width: 322,
         height: 131,
 
-        speedX: 100, // 187 - каждую секунду трубы появляются
+        speedX: 125, // 100 // 187 - каждую секунду трубы появляются
 
         frames: [
             {
@@ -105,7 +105,7 @@ class Config {
         width: 53,
         height: 399,
 
-        speedX: 100,
+        speedX: 125,
 
         gap: 85,
         minY: -300,
