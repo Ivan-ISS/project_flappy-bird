@@ -3,36 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="icon" href="./src/assets/images/svg/favicon.svg">
+    <link rel="stylesheet" href="./src/css/index.css">
     <title>Flappy Bird</title>
 </head>
-<body class="body">
-    <header class="header">
-        <canvas class="game-header" width="324" height="55"></canvas>
-    </header>
-    <main class="main">
-        <canvas class="game" width="322" height="482"></canvas>
-    </main>
-    <footer class="footer">
-        
-    </footer>
-    <script src="js/config.js"></script>
-    <script src="js/entities/base.js"></script>
-    <script src="js/entities/bird.js"></script>
-    <script src="js/entities/background.js"></script>
-    <script src="js/entities/pipes.js"></script>
-    <script src="js/entities/floor.js"></script>
-    <script src="js/entities/initialDisplay.js"></script>
-    <script src="js/entities/endDisplay.js"></script>
-    <script src="js/entities/startBtn.js"></script>
-    <script src="js/entities/score.js"></script>
-    <script src="js/entities/medal.js"></script>
-    <script src="js/drawEngine.js"></script>
-    <script src="js/physicsEngine.js"></script>
-    <script src="js/inputHandler.js"></script>
-    <script src="js/resources.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/index.js"></script>
+<body>
+    <div id="root"></div>
+
+    <!-- Constants and Utils -->
+    <script src="./src/constants/root.js"></script>
+    <script src="./src/utils/random.js"></script>
+    <script src="./src/utils/localStorageUtil.js"></script>
+
+        <!-- Game components -->
+
+        <!-- Config -->
+        <script src="./src/components/Game/config/config.js"></script>
+
+        <!-- ResourseLoader -->
+        <script src="./src/components/Game/resources/resourceLoader.js"></script>
+
+        <!-- CanvasDrawEngine -->
+        <script src="./src/components/Game/engines/canvasDrawEngine.js"></script>
+
+        <!-- PhysicsEngine -->
+        <script src="./src/components/Game/engines/physicsEngine.js"></script>
+
+        <!-- ControlEngine -->
+        <script src="./src/components/Game/engines/controlEngine.js"></script>
+
+        <!-- BaseEntity -->
+        <script src="./src/components/Game/entities/baseEntity.js"></script>
+
+        <!-- Score -->
+        <script src="./src/components/Game/entities/score.js"></script>
+
+        <!-- Floor -->
+        <script src="./src/components/Game/entities/floor.js"></script>
+
+        <!-- Pipe -->
+        <script src="./src/components/Game/entities/pipe.js"></script>
+
+        <!-- Pipes -->
+        <script src="./src/components/Game/entities/pipeMaker.js"></script>
+
+        <!-- Bird -->
+        <script src="./src/components/Game/entities/bird.js"></script>
+
+        <!-- Game -->
+        <script src="./src/components/Game/game.js"></script>
+
+    <!-- Logo -->
+    <script src="./src/components/Logo/logo.js"></script>
+    <link rel="stylesheet" href="./src/components/Logo/logo.css">
+
+    <!-- Header -->
+    <script src="./src/components/Header/header.js"></script>
+    <link rel="stylesheet" href="./src/components/Header/header.css">
+
+    <!-- Main -->
+    <script src="./src/components/Main/main.js"></script>
+    <link rel="stylesheet" href="./src/components/Main/main.css">
+
+    <!-- Footer -->
+    <script src="./src/components/Footer/footer.js"></script>
+    <link rel="stylesheet" href="./src/components/Footer/footer.css">
+
+    <!-- Layout -->
+    <script src="./src/components/Layout/layout.js"></script>
+    <link rel="stylesheet" href="./src/components/Layout/layout.css">
+
+    <!-- App -->
+    <script src="./src/components/App.js"></script>
+
+    <!-- index -->
+    <script src="./src/index.js"></script>
 </body>
 </html>
