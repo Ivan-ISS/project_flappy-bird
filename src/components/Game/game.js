@@ -43,6 +43,7 @@ class Game {
                 ...additionalProps,
                 physicsEngine: this._physicsEngine,
                 spriteSheet: this._spriteSheet,
+                audio: this._audio,
                 drawEngine: this._drawEngine,
                 game: this,
             });
@@ -65,11 +66,22 @@ class Game {
 
     async prepare() {
         this._spriteSheet = await this._resourceLoader.load({
-            type: RESOURCE_TYPE.IMAGE,
+            type: 'image',
             src: this._config.spriteSheet.src,
             width: this._config.spriteSheet.width,
             height: this._config.spriteSheet.height,
         });
+
+        const { srcMusic, srcPoint, srcHit, srcSwooshing, srcFlap, srcDie } = this._config.audio;
+
+        this._audio = {
+            music: await this._resourceLoader.load({ type: 'audio', src: srcMusic }),
+            point: await this._resourceLoader.load({ type: 'audio', src: srcPoint }),
+            hit: await this._resourceLoader.load({ type: 'audio', src: srcHit }),
+            swooshing: await this._resourceLoader.load({ type: 'audio', src: srcSwooshing }),
+            flap: await this._resourceLoader.load({ type: 'audio', src: srcFlap }),
+            die: await this._resourceLoader.load({ type: 'audio', src: srcDie }),
+        };
 
         // return this._spriteSheet; - если сделать так, то в App заработает это console.log('spriteSheet :', res);,
         // т.к. возвращаем результат, кот вновь в промис обернется
@@ -131,7 +143,6 @@ class Game {
     _gameOver() {
         this._live = false;
         this._play = false;
-        this._disableHandlers();
         this._controlEngine.disableHandlers();
         this._score.reset();
 
@@ -155,6 +166,7 @@ class Game {
                 bird.y + bird.height > entity.y &&
                 bird.y < entity.y + entity.height
             ) {
+                this._audio.hit.play();
                 this._gameOver();
             }
         });
@@ -166,7 +178,10 @@ class Game {
             const pipeMiddleX = pipe.x + pipe.width / 2;
 
             if (pipeMiddleX < birdMiddleX && pipe.isComing) {
-                this._score.currentScore += 0.5;
+                this._score.increase();
+                this._audio.point.currentTime = 0;
+                this._audio.point.play();
+
                 pipe.isComing = false;
             }
             if (pipe.x > this._bird.x) {
@@ -190,7 +205,13 @@ class Game {
     }
 
     _initHandlers() {
-        this._pressPlay = () => (this._play = true);
+        this._pressPlay = () => {
+            this._play = true;
+            this._audio.music.loop = true;
+            this._audio.music.volume = 0.5;
+            this._audio.music.play();
+            this._disableHandlers();
+        };
         this._pressStart = (e) => {
             let rect = this._canvas.getBoundingClientRect();
             let clickX = e.clientX - rect.left;

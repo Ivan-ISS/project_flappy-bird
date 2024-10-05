@@ -15,6 +15,15 @@ class Config {
         src: './src/assets/images/png/spriteSheet.png',
     };
 
+    audio = {
+        srcMusic: './src/assets/audio/sfx_music.wav',
+        srcPoint: './src/assets/audio/sfx_point.wav',
+        srcHit: './src/assets/audio/sfx_hit.wav',
+        srcSwooshing: './src/assets/audio/sfx_swooshing.wav',
+        srcFlap: './src/assets/audio/sfx_flap.wav',
+        srcDie: './src/assets/audio/sfx_die.wav',
+    };
+
     bird = {
         x: 50,
         y: 100,
@@ -26,7 +35,7 @@ class Config {
         angleMax: 1.57,
 
         flapForce: 3.35,
-        frameRate: 7,
+        frameRate: 10,
 
         frames: [
             {
@@ -78,7 +87,7 @@ class Config {
         width: 322,
         height: 131,
 
-        speedX: 100,
+        speedX: 100, // 187 - каждую секунду трубы появляются
 
         frames: [
             {

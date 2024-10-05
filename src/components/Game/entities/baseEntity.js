@@ -7,6 +7,7 @@ class BaseEntity {
         height,
         frames,
         spriteSheet,
+        audio,
         drawEngine,
         physicsEngine,
         speedX,
@@ -24,6 +25,7 @@ class BaseEntity {
         this._frameIdx = 0;
         this._frames = frames;
         this._spriteSheet = spriteSheet;
+        this._audio = audio;
 
         this._drawEngine = drawEngine;
         this._physicsEngine = physicsEngine;

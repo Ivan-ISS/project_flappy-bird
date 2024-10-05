@@ -4,14 +4,15 @@ class Pipe extends BaseEntity {
     static secondPairRandomY = 0;
 
     constructor(params) {
+        const { pipeNum, gap, minY, maxY, divisor } = params;
         super(params);
-        this.divisor = params.divisor;
+        this.divisor = divisor;
         this.isComing = true;
 
-        this._pipeNum = params.pipeNum;
-        this._gap = params.gap;
-        this._minY = params.minY;
-        this._maxY = params.maxY;
+        this._pipeNum = pipeNum;
+        this._gap = gap;
+        this._minY = minY;
+        this._maxY = maxY;
     }
 
     update(delta, play) {

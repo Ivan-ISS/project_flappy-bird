@@ -1,5 +1,6 @@
 const RESOURCE_TYPE = {
     IMAGE: 'image',
+    AUDIO: 'audio',
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -14,11 +15,23 @@ class ResourseLoader {
                 image.addEventListener('error', (error) => reject(error));
             });
         },
+        [RESOURCE_TYPE.AUDIO]: async ({ src }) => {
+            return new Promise((resolve, reject) => {
+                const audio = new Audio();
+                audio.src = src;
+
+                audio.addEventListener('loadedmetadata', () => {
+                    console.log('here');
+                    resolve(audio);
+                });
+                audio.addEventListener('error', (error) => reject(error));
+            });
+        },
     };
 
     async load(resource) {
         const loader = this._typeLoadersMap[resource.type];
-        // const res = await loader(resource); - этот результат за счет async вновь оборачивается в промис в состоянии разрешен (можно так вернуть return res)
+        // const res = await loader(resource); - этот результат за счет async вновь оборачивается в промис в состоянии разрешен (можно так вернуть - return res)
         return await loader(resource);
     }
 }

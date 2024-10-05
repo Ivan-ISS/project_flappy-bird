@@ -1,16 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 class Score extends BaseEntity {
     constructor(params) {
+        const { currentScoreX, currentScoreY, bestScoreX, bestScoreY } = params;
         super(params);
         this._localStorageUtil = new LocalSrorageUtil('bestScoreFlappyBird');
 
         this.currentScore = 0;
         this.bestScore = this._localStorageUtil.loadData() || 0;
 
-        this._currentScoreX = params.currentScoreX;
-        this._currentScoreY = params.currentScoreY;
-        this._bestScoreX = params.bestScoreX;
-        this._bestScoreY = params.bestScoreY;
+        this._currentScoreX = currentScoreX;
+        this._currentScoreY = currentScoreY;
+        this._bestScoreX = bestScoreX;
+        this._bestScoreY = bestScoreY;
     }
 
     _writeTextData() {
@@ -29,7 +30,7 @@ class Score extends BaseEntity {
     }
 
     increase() {
-        this.currentScore += 1;
+        this.currentScore += 0.5;
     }
 
     reset() {
