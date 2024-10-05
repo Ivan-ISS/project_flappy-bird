@@ -5,8 +5,20 @@
 .game__container {
     margin: 0 auto;
     box-sizing: content-box;
-    padding-top: 25px;
+    padding-top: 50px;
     padding-bottom: 25px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.game-flappy-bird {
+    width: max-content;
+}
+
+.cnv {
+    border: 3px solid var(--baseOrange);
+    box-shadow: var(--boxShadowContainer);
 }
 
 @media (max-width: 767px) {

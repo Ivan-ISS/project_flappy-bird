@@ -20,6 +20,7 @@ module.exports = {
         LocalSrorageUtil: 'readonly',
 
         // -- Layout --
+        Logo: 'readonly',
         Header: 'readonly',
         Main: 'readonly',
         Footer: 'readonly',

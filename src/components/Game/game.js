@@ -10,7 +10,7 @@ class Game {
 
     render() {
         const htmlGame = `
-            <div class="game">
+            <div class="game-flappy-bird">
                 <canvas class="cnv"></canvas>
             </div>
         `;
