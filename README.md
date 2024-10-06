@@ -9,11 +9,8 @@
 ```bash
 git clone https://github.com/Ivan-ISS/project_flappy-bird.git
 ```
-&nbsp; __2.__ Запустить файл index.html:
-```bash
-npm install
-```
-&nbsp; __3.__ Играть
+&nbsp; __2.__ Запустить файл index.html<br>
+&nbsp; __3.__ Играть<br>
 
 ---
 
@@ -71,10 +68,7 @@ __Проект *"Flappy Bird"*__ - это 2D-игра, в которой игр�
 ```bash
 git clone https://github.com/Ivan-ISS/project_flappy-bird.git
 ```
-&nbsp; __2.__ Запустить файл index.html:
-```bash
-npm install
-```
-&nbsp; __3.__ Играть
+&nbsp; __2.__ Запустить файл index.html<br>
+&nbsp; __3.__ Играть<br>
 
 **Ссылка для просмотра проекта:** ***https://project-flappy-bird.vercel.app/***
