@@ -20,10 +20,7 @@ class ResourseLoader {
                 const audio = new Audio();
                 audio.src = src;
 
-                audio.addEventListener('loadedmetadata', () => {
-                    console.log('here');
-                    resolve(audio);
-                });
+                audio.addEventListener('loadedmetadata', () => resolve(audio));
                 audio.addEventListener('error', (error) => reject(error));
             });
         },
