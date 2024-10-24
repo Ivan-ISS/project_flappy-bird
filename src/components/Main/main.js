@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+//import './main.css';
+
 class Main {
     render(children) {
         let htmlMain = `
@@ -14,3 +15,5 @@ class Main {
         return htmlMain;
     }
 }
+
+export { Main };

@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+//import './header.css';
+
 class Header {
     render(children) {
         let htmlHeader = `
@@ -12,3 +13,5 @@ class Header {
         return htmlHeader;
     }
 }
+
+export { Header };

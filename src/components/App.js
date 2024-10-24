@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+import { Layout } from './Layout/layout';
+
 class App {
     constructor() {
         this.layout = new Layout();
@@ -6,12 +7,14 @@ class App {
 
     launchApp() {
         this.layout.render();
-        this.layout.game.prepare().then((res) => {
+        /* this.layout.game.prepare().then((res) => {
             console.log('spriteSheet по итогу:', this.layout.game._spriteSheet);
             console.log('spriteSheet по возвращаемому результату:', res);
 
             this.layout.game.initGame();
             this.layout.game.start();
-        });
+        }); */
     }
 }
+
+export { App };

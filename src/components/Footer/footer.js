@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+//import './footer.css';
+
 class Footer {
     render(children) {
         let htmlFooter = `
@@ -12,3 +13,5 @@ class Footer {
         return htmlFooter;
     }
 }
+
+export { Footer };

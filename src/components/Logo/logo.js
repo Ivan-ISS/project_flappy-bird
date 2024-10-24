@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+//import './logo.css';
+
 class Logo {
     constructor(src) {
         this.src = src;
@@ -14,3 +15,5 @@ class Logo {
         return htmlLogo;
     }
 }
+
+export { Logo };

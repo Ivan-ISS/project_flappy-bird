@@ -12,19 +12,11 @@ module.exports = {
         quotes: ['error', 'single'],
     },
     globals: {
-        ROOT: 'readonly',
         RESOURCE_TYPE: 'readonly',
 
         // -- utils --
         random: 'readonly',
         LocalSrorageUtil: 'readonly',
-
-        // -- Layout --
-        Logo: 'readonly',
-        Header: 'readonly',
-        Main: 'readonly',
-        Footer: 'readonly',
-        Layout: 'readonly',
 
         // -- Game --
         Config: 'readonly',
@@ -39,8 +31,5 @@ module.exports = {
         PipeMaker: 'readonly',
         Bird: 'readonly',
         Game: 'readonly',
-
-        // -- App --
-        App: 'readonly',
     },
 };

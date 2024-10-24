@@ -1,19 +1,25 @@
-// eslint-disable-next-line no-unused-vars
+//import './Layout.css';
+import { ROOT } from '../../constants/root';
+import { Logo } from '../Logo/logo';
+import { Header } from '../Header/header';
+import { Main } from '../Main/main';
+import { Footer } from '../Footer/footer';
+
 class Layout {
     constructor() {
         this.logo = new Logo('src/assets/images/svg/logo.svg');
         this.header = new Header();
         this.footer = new Footer();
         this.main = new Main();
-        this.game = new Game();
+        // this.game = new Game();
     }
 
     render() {
         const htmlLogo = this.logo.render();
         const htmlHeader = this.header.render(htmlLogo);
 
-        const htmlGame = this.game.render();
-        const htmlMain = this.main.render(htmlGame);
+        // const htmlGame = this.game.render();
+        const htmlMain = this.main.render('htmlGame');
 
         const htmlFooter = this.footer.render('Created by Sabelnikov IS');
 
@@ -22,3 +28,5 @@ class Layout {
         ROOT.innerHTML = html;
     }
 }
+
+export { Layout };
