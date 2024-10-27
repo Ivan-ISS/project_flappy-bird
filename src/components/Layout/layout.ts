@@ -1,4 +1,4 @@
-//import './Layout.css';
+import './Layout.scss';
 import { ROOT } from '../../constants/root';
 import { Logo } from '../Logo/logo';
 import { Header } from '../Header/header';
@@ -6,6 +6,11 @@ import { Main } from '../Main/main';
 import { Footer } from '../Footer/footer';
 
 class Layout {
+    logo: Logo;
+    header: Header;
+    footer: Footer;
+    main: Main;
+
     constructor() {
         this.logo = new Logo('src/assets/images/svg/logo.svg');
         this.header = new Header();

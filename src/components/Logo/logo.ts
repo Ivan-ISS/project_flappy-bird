@@ -1,12 +1,14 @@
-//import './logo.css';
+import './logo.scss';
 
 class Logo {
-    constructor(src) {
+    src: string;
+
+    constructor(src: string) {
         this.src = src;
     }
 
     render() {
-        let htmlLogo = `
+        const htmlLogo = `
             <div class="logo">
                 <img class="logo__img" src="${this.src}" alt="logo"/>
             </div>

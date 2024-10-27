@@ -1,3 +1,6 @@
+@import "src/styles/_colors";
+@import "src/styles/_variables";
+
 .main {
     flex: 1;
 }
@@ -17,8 +20,8 @@
 }
 
 .cnv {
-    border: 3px solid var(--baseOrange);
-    box-shadow: var(--boxShadowContainer);
+    border: 3px solid $baseOrange;
+    box-shadow: $boxShadowContainer;
 }
 
 @media (max-width: 767px) {

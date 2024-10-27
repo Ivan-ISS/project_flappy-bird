@@ -1,8 +1,8 @@
-//import './main.css';
+import './main.scss';
 
 class Main {
-    render(children) {
-        let htmlMain = `
+    render(children: string) {
+        const htmlMain = `
             <div class="main">
                 <section class="main__game game">
                     <div class="game__container container-common">

@@ -1,0 +1,20 @@
+@import "_colors";
+
+$desktopFontSize: 16px;
+$mobileFontSize: 14px;
+$desktopTitleFontSize: 28px;
+$mobileTitleFontSize: 18px;
+$desktopHugeFontSize: 112px;
+$mobileHugeFontSize: 48px;
+
+$textShadow: 
+    0.2px 0.2px 15px rgba(0, 0, 0, 0.355),
+    -0.2px -0.2px 15px rgba(0, 0, 0, 0.355),
+    0.2px -0.2px 15px rgba(0, 0, 0, 0.355),
+    -0.2px 0.2px 15px rgba(0, 0, 0, 0.355);
+
+$borderRadius: 12px;
+$boxShadowContainer: 0 0 30px 0 $baseGray;
+$boxShadowButton: 0 0 10px 0 $baseGray;
+
+$transitionHover: 0.3s ease;

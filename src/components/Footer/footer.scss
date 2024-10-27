@@ -1,9 +1,12 @@
+@import "src/styles/_colors";
+@import "src/styles/_variables";
+
 .footer {
     position: sticky;
     top: 0;
     z-index: 1;
-    background: var(--baseBrandLight3);
-    box-shadow: 0px -8px 5px -5px var(--baseGray);
+    background: $baseBrandLight3;
+    box-shadow: 0px -8px 5px -5px $baseGray;
 
     display: flex;
     font-weight: 800;

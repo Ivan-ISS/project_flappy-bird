@@ -1,6 +1,8 @@
 import { Layout } from './Layout/layout';
 
 class App {
+    layout: Layout;
+
     constructor() {
         this.layout = new Layout();
     }

@@ -1,8 +1,8 @@
-//import './footer.css';
+import './footer.scss';
 
 class Footer {
-    render(children) {
-        let htmlFooter = `
+    render(children: string) {
+        const htmlFooter = `
             <div class="footer">
                 <div class="footer__container container-common">
                     ${children}

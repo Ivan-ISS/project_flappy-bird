@@ -1,8 +1,8 @@
-//import './header.css';
+import './header.scss';
 
 class Header {
-    render(children) {
-        let htmlHeader = `
+    render(children: string) {
+        const htmlHeader = `
             <div class="header">
                 <div class="header__container container-common">
                     ${children}
