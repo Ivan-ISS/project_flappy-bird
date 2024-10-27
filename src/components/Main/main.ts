@@ -5,7 +5,7 @@ class Main {
         const htmlMain = `
             <div class="${styles.main}">
                 <section class="game">
-                    <div class="${styles.gameContainer} ${styles.containerCommon}">
+                    <div class="${styles.gameContainer} ${'containerCommon'}">
                         ${children}
                     </div>
                 </section>

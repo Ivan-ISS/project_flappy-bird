@@ -4,7 +4,7 @@ class Header {
     render(children: string) {
         const htmlHeader = `
             <div class="${styles.header}">
-                <div class="${styles.headerContainer} ${styles.containerCommon}">
+                <div class="${styles.headerContainer} ${'containerCommon'}">
                     ${children}
                 </div>
             </div>
