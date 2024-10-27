@@ -5,6 +5,12 @@ import { IBuildOptions } from './types/types';
 export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
     const isDev = options.mode === 'development';
 
+    const scssLoaderGlobal = {
+        test: /\.scss$/i,
+        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        exclude: /src\/styles\/modules/,
+    };
+
     const cssLoaderWithModules = {
         loader: 'css-loader',
         options: {
@@ -12,20 +18,6 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
                 localIdentName: isDev ? '[local]--[hash:base64:5]' : '[hash:base64:8]',
             },
         },
-    };
-
-    const cssLoaderWithoutModules = {
-        loader: 'css-loader',
-    };
-
-    const scssLoaderGlobal = {
-        test: /\.scss$/i,
-        use: [
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            cssLoaderWithoutModules,
-            'sass-loader',
-        ],
-        exclude: /src\/styles\/modules/,
     };
 
     const scssLoaderModule = {
