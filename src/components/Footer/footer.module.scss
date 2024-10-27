@@ -1,6 +1,12 @@
 @import "src/styles/_colors";
 @import "src/styles/_variables";
 
+.containerCommon {
+    padding: 5px 32px;
+    max-width: 1440px;
+    min-width: 330px;
+}
+
 .footer {
     position: sticky;
     top: 0;
@@ -12,7 +18,7 @@
     font-weight: 800;
 }
 
-.footer__container {
+.footerContainer {
     min-height: 38px;
     box-sizing: content-box;
     display: flex;
@@ -21,4 +27,11 @@
     gap: 35px;
 
     width: 100%;
+}
+
+@media (max-width: 767px) {
+
+    .containerCommon {
+        padding: 5px 10px;
+    }
 }

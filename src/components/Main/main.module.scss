@@ -1,11 +1,17 @@
 @import "src/styles/_colors";
 @import "src/styles/_variables";
 
+.containerCommon {
+    padding: 5px 32px;
+    max-width: 1440px;
+    min-width: 330px;
+}
+
 .main {
     flex: 1;
 }
 
-.game__container {
+.gameContainer {
     margin: 0 auto;
     box-sizing: content-box;
     padding-top: 50px;
@@ -15,7 +21,7 @@
     justify-content: center;
 }
 
-.game-flappy-bird {
+.gameFlappyBird {
     width: max-content;
 }
 
@@ -26,7 +32,11 @@
 
 @media (max-width: 767px) {
 
-    .game__container {
+    .containerCommon {
+        padding: 5px 10px;
+    }
+
+    .gameContainer {
         padding-top: 25px;
         padding-bottom: 25px;
     }

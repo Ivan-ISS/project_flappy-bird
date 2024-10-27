@@ -1,11 +1,11 @@
-import './main.scss';
+import * as styles from './main.module.scss';
 
 class Main {
     render(children: string) {
         const htmlMain = `
-            <div class="main">
-                <section class="main__game game">
-                    <div class="game__container container-common">
+            <div class="${styles.main}">
+                <section class="game">
+                    <div class="${styles.gameContainer} ${styles.containerCommon}">
                         ${children}
                     </div>
                 </section>

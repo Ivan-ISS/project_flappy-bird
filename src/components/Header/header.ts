@@ -1,10 +1,10 @@
-import './header.scss';
+import * as styles from './header.module.scss';
 
 class Header {
     render(children: string) {
         const htmlHeader = `
-            <div class="header">
-                <div class="header__container container-common">
+            <div class="${styles.header}">
+                <div class="${styles.headerContainer} ${styles.containerCommon}">
                     ${children}
                 </div>
             </div>

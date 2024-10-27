@@ -1,4 +1,4 @@
-import './Layout.scss';
+import * as styles from './Layout.module.scss';
 import { ROOT } from '../../constants/root';
 import { Logo } from '../Logo/logo';
 import { Header } from '../Header/header';
@@ -28,7 +28,7 @@ class Layout {
 
         const htmlFooter = this.footer.render('Created by Sabelnikov IS');
 
-        const html = `<div class="layout">${htmlHeader + htmlMain + htmlFooter}</div>`;
+        const html = `<div class="${styles.layout}">${htmlHeader + htmlMain + htmlFooter}</div>`;
 
         ROOT.innerHTML = html;
     }

@@ -1,4 +1,4 @@
-import './logo.scss';
+import * as styles from './logo.module.scss';
 
 class Logo {
     src: string;
@@ -9,8 +9,8 @@ class Logo {
 
     render() {
         const htmlLogo = `
-            <div class="logo">
-                <img class="logo__img" src="${this.src}" alt="logo"/>
+            <div class="${styles.logo}">
+                <img class="${styles.logoImg}" src="${this.src}" alt="logo"/>
             </div>
         `;
 
