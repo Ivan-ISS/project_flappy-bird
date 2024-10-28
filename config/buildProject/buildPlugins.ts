@@ -1,3 +1,4 @@
+import path from 'path';
 import webpack from 'webpack';
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -9,7 +10,12 @@ export function buildPlugins({ mode, paths }: IBuildOptions): Configuration['plu
     const isDev = mode === 'development';
     const isProd = mode === 'production';
 
-    const plugins: Configuration['plugins'] = [new HtmlWebpackPlugin({ template: paths.html })];
+    const plugins: Configuration['plugins'] = [
+        new HtmlWebpackPlugin({
+            template: paths.html,
+            favicon: path.resolve(paths.public, 'favicon.svg'),
+        }),
+    ];
 
     if (isDev) {
         plugins.push(new webpack.ProgressPlugin());
