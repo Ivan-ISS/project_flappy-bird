@@ -4,6 +4,7 @@ import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import { IBuildOptions } from './types/types';
 
 export function buildPlugins({ mode, paths }: IBuildOptions): Configuration['plugins'] {
@@ -27,6 +28,16 @@ export function buildPlugins({ mode, paths }: IBuildOptions): Configuration['plu
             new MiniCssExtractPlugin({
                 filename: 'css/[name].[contenthash:8].css',
                 chunkFilename: 'css/[name].[contenthash:8].css',
+            })
+        );
+        plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: path.resolve(paths.public, 'locales'),
+                        to: path.resolve(paths.output, 'locales'),
+                    },
+                ],
             })
         );
     }
