@@ -5,6 +5,14 @@ import { IBuildOptions } from './types/types';
 export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
     const isDev = options.mode === 'development';
 
+    const assetLoader = {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+            filename: 'images/[contenthash][ext]',
+        },
+    };
+
     const scssLoaderGlobal = {
         test: /\.scss$/i,
         use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -36,5 +44,5 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
         exclude: /node_modules/,
     };
 
-    return [scssLoaderGlobal, scssLoaderModule, tsLoader];
+    return [assetLoader, scssLoaderGlobal, scssLoaderModule, tsLoader];
 }

@@ -5,8 +5,8 @@ import { TBuildMode, IBuildPaths } from './config/buildProject/types/types';
 import { buildWebpack } from './config/buildProject/buildWebpack';
 
 interface IEnvVariables {
-    mode: TBuildMode;
-    port: number;
+    mode?: TBuildMode;
+    port?: number;
 }
 
 export default (env: IEnvVariables) => {

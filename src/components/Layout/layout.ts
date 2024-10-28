@@ -4,6 +4,7 @@ import { Logo } from '../Logo/logo';
 import { Header } from '../Header/header';
 import { Main } from '../Main/main';
 import { Footer } from '../Footer/footer';
+import logoIcon from '@/assets/images/svg/logo.svg';
 
 class Layout {
     logo: Logo;
@@ -12,7 +13,7 @@ class Layout {
     main: Main;
 
     constructor() {
-        this.logo = new Logo('src/assets/images/svg/logo.svg');
+        this.logo = new Logo(logoIcon);
         this.header = new Header();
         this.footer = new Footer();
         this.main = new Main();
