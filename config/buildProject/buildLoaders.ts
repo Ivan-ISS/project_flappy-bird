@@ -40,7 +40,14 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
 
     const tsLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: isDev && true,
+                },
+            },
+        ],
         exclude: /node_modules/,
     };
 

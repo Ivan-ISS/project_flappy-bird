@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { IBuildOptions } from './types/types';
 
 export function buildPlugins({ mode, paths }: IBuildOptions): Configuration['plugins'] {
@@ -12,6 +13,7 @@ export function buildPlugins({ mode, paths }: IBuildOptions): Configuration['plu
 
     if (isDev) {
         plugins.push(new webpack.ProgressPlugin());
+        plugins.push(new ForkTsCheckerWebpackPlugin());
     }
 
     if (isProd) {
