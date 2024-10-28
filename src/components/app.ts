@@ -1,4 +1,4 @@
-import { Layout } from './Layout/layout';
+import { Layout } from '@/components/Layout/layout';
 
 class App {
     layout: Layout;

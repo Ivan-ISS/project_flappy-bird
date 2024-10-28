@@ -14,6 +14,7 @@ export default (env: IEnvVariables) => {
         entry: path.resolve(__dirname, 'src', 'index.ts'),
         html: path.resolve(__dirname, 'index.html'),
         output: path.resolve(__dirname, 'build'),
+        src: path.resolve(__dirname, 'src'),
     };
 
     const config: webpack.Configuration = buildWebpack({
