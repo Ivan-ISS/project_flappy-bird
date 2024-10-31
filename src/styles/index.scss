@@ -23,6 +23,16 @@
     background: #acacac;
 }
 
+/* game field---------------------------------------------------------------------- */
+.gameFlappyBird {
+    width: fit-content;
+}
+
+.cnv {
+    border: 3px solid $baseOrange;
+    box-shadow: $boxShadowContainer;
+}
+
 /* common helper classes---------------------------------------------------------------------- */
 .containerCommon {
     padding: 5px 32px;

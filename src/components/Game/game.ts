@@ -62,7 +62,7 @@ class Game {
 
     public render() {
         const htmlGame = `
-            <div class="game-flappy-bird">
+            <div class="gameFlappyBird">
                 <canvas class="cnv"></canvas>
             </div>
         `;
