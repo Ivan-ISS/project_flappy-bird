@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 class CanvasDrawEngine {
     constructor({ canvas }) {
         this._canvas = canvas;
@@ -37,3 +36,5 @@ class CanvasDrawEngine {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
 }
+
+export { CanvasDrawEngine };

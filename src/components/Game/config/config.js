@@ -1,4 +1,11 @@
-// eslint-disable-next-line no-unused-vars
+import spriteSheet from '@/assets/images/png/spriteSheet.png';
+import music from '@/assets/audio/sfx_music.wav';
+import point from '@/assets/audio/sfx_point.wav';
+import hit from '@/assets/audio/sfx_hit.wav';
+import swooshing from '@/assets/audio/sfx_swooshing.wav';
+import flap from '@/assets/audio/sfx_flap.wav';
+import die from '@/assets/audio/sfx_die.wav';
+
 class Config {
     gravity = 600; // 9.8;
 
@@ -12,16 +19,16 @@ class Config {
     spriteSheet = {
         width: 606,
         height: 428,
-        src: './src/assets/images/png/spriteSheet.png',
+        src: spriteSheet,
     };
 
     audio = {
-        srcMusic: './src/assets/audio/sfx_music.wav',
-        srcPoint: './src/assets/audio/sfx_point.wav',
-        srcHit: './src/assets/audio/sfx_hit.wav',
-        srcSwooshing: './src/assets/audio/sfx_swooshing.wav',
-        srcFlap: './src/assets/audio/sfx_flap.wav',
-        srcDie: './src/assets/audio/sfx_die.wav',
+        srcMusic: music,
+        srcPoint: point,
+        srcHit: hit,
+        srcSwooshing: swooshing,
+        srcFlap: flap,
+        srcDie: die,
     };
 
     bird = {
@@ -224,3 +231,5 @@ class Config {
         ],
     };
 }
+
+export { Config };

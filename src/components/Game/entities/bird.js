@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+import { BaseEntity } from './baseEntity';
+
 class Bird extends BaseEntity {
     constructor(params) {
         const { rotationSpeed, angleMin, angleMax, flapForce, frameRate } = params;
@@ -39,3 +40,5 @@ class Bird extends BaseEntity {
         this._audio.flap.play();
     }
 }
+
+export { Bird };

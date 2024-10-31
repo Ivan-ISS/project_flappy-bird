@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 class LocalSrorageUtil {
     constructor(keyName) {
         this.keyName = keyName;
@@ -30,3 +29,5 @@ class LocalSrorageUtil {
         localStorage.removeItem(this.keyName);
     }
 }
+
+export { LocalSrorageUtil };

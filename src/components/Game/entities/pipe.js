@@ -1,4 +1,6 @@
-// eslint-disable-next-line no-unused-vars
+import { BaseEntity } from './baseEntity';
+import { random } from '../../../utils/random';
+
 class Pipe extends BaseEntity {
     static firstPairRandomY = 0;
     static secondPairRandomY = 0;
@@ -50,3 +52,5 @@ class Pipe extends BaseEntity {
         }
     }
 }
+
+export { Pipe };

@@ -1,4 +1,7 @@
-// eslint-disable-next-line no-unused-vars
+import { LocalSrorageUtil } from '../../../utils/localStorageUtil';
+
+import { BaseEntity } from './baseEntity';
+
 class Score extends BaseEntity {
     constructor(params) {
         const { currentScoreX, currentScoreY, bestScoreX, bestScoreY } = params;
@@ -41,3 +44,5 @@ class Score extends BaseEntity {
         this._writeTextData();
     }
 }
+
+export { Score };

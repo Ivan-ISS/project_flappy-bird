@@ -3,7 +3,6 @@ const RESOURCE_TYPE = {
     AUDIO: 'audio',
 };
 
-// eslint-disable-next-line no-unused-vars
 class ResourseLoader {
     _typeLoadersMap = {
         [RESOURCE_TYPE.IMAGE]: async ({ src, width, height }) => {
@@ -32,3 +31,5 @@ class ResourseLoader {
         return await loader(resource);
     }
 }
+
+export { ResourseLoader };

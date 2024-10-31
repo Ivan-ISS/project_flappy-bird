@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+import { BaseEntity } from './baseEntity';
+
 class Floor extends BaseEntity {
     constructor(params) {
         super(params);
@@ -10,3 +11,5 @@ class Floor extends BaseEntity {
         }
     }
 }
+
+export { Floor };

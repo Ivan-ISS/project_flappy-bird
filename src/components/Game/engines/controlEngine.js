@@ -22,7 +22,6 @@ class BaseControlEngine {
     }
 }
 
-// eslint-disable-next-line no-unused-vars
 class ControlEngine extends BaseControlEngine {
     deviceNameMap = {
         0: 'leftMouse',
@@ -47,3 +46,5 @@ class ControlEngine extends BaseControlEngine {
         },
     };
 }
+
+export { ControlEngine };

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 class PhysicsEngine {
     constructor({ gravity }) {
         this._gravity = gravity;
@@ -21,3 +20,5 @@ class PhysicsEngine {
         entity.angle += entity.rotationSpeed * delta;
     }
 }
+
+export { PhysicsEngine };

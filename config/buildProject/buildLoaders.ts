@@ -13,6 +13,16 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
         },
     };
 
+    const audioLoader = {
+        test: /\.(wav)$/i,
+        use: {
+            loader: 'file-loader',
+            options: {
+                name: 'audio/[name].[ext]',
+            },
+        },
+    };
+
     const scssLoaderGlobal = {
         test: /\.scss$/i,
         use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
@@ -51,5 +61,5 @@ export function buildLoaders(options: IBuildOptions): ModuleOptions['rules'] {
         exclude: /node_modules/,
     };
 
-    return [assetLoader, scssLoaderGlobal, scssLoaderModule, tsLoader];
+    return [audioLoader, assetLoader, scssLoaderGlobal, scssLoaderModule, tsLoader];
 }

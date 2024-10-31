@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+import { Pipe } from './pipe';
+
 class PipeMaker {
     constructor(params) {
         const { x, y, width, height, frames, game } = params;
@@ -60,3 +61,5 @@ class PipeMaker {
         return pipes;
     }
 }
+
+export { PipeMaker };
