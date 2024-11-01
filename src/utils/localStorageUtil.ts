@@ -1,9 +1,11 @@
 class LocalSrorageUtil {
-    constructor(keyName) {
+    private keyName: string;
+
+    constructor(keyName: string) {
         this.keyName = keyName;
     }
 
-    saveData(data) {
+    saveData(data: number | string) {
         try {
             const serializedState = JSON.stringify(data);
             localStorage.setItem(this.keyName, serializedState);

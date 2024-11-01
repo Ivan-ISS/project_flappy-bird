@@ -19,16 +19,16 @@ class Config {
     spriteSheet = {
         width: 606,
         height: 428,
-        src: spriteSheet,
+        src: spriteSheet as string,
     };
 
     audio = {
-        srcMusic: music,
-        srcPoint: point,
-        srcHit: hit,
-        srcSwooshing: swooshing,
-        srcFlap: flap,
-        srcDie: die,
+        srcMusic: music as string,
+        srcPoint: point as string,
+        srcHit: hit as string,
+        srcSwooshing: swooshing as string,
+        srcFlap: flap as string,
+        srcDie: die as string,
     };
 
     bird = {
